@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div" style="width:100px; height:100px; background-color:#000; position: absolute;left:0; top:0;">
+</div>
+
+</body>
+<script type="text/javascript">
+
+//    let divEle = document.getElementById("div");
+//
+//    const distance = 1500;
+//    const timeCount = 3000;
+//
+//    function handler(time) {
+//        if (time > timeCount) {
+//            time = timeCount;
+//        }
+//        console.log('time', time)
+//        let dance = time * distance / timeCount;
+//        divEle.style.left = dance + 'px';
+//        window.requestAnimationFrame(handler);
+//    }
+//
+//    window.requestAnimationFrame(handler);
+
+let divEle = document.getElementById("div");
+
+const distance = 1500;
+const timeCount = 3000;
+
+const intervalTime = 10;
+let runCount = timeCount / intervalTime;
+let moveValue = distance / runCount;
+
+function handler() {
+    let left = parseInt(divEle.style.left);
+    if(left >= distance) {
+        return;
+    }
+    divEle.style.left = left + moveValue + 'px';
+    window.setTimeout(handler, intervalTime);
+}
+
+window.setTimeout(handler, intervalTime);
+
+</script>
+</html>
+
+
